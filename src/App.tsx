@@ -3,6 +3,8 @@ import { ChakraProvider, CSSReset, Box } from "@chakra-ui/react";
 import theme from "@chakra-ui/theme";
 import backgroundImage from "images/app-root-background.jpg";
 
+import Header from "components/Header";
+
 const App: React.FC = () => (
   <ChakraProvider theme={theme}>
     <CSSReset />
@@ -13,7 +15,7 @@ const App: React.FC = () => (
       height="100vh"
       position="relative"
     >
-      Heloo joo!
+      <Header />
     </Box>
   </ChakraProvider>
 );
