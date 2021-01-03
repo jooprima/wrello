@@ -29,9 +29,20 @@ const KanbanStack: React.FC = () => {
         position="absolute"
         alignItems="flex-start"
       >
-        <KanbanCard title="KanbanCard1" id="task-1" tasks={[]} />
-        <KanbanCard title="KanbanCard2" id="task-2" tasks={[]} />
-        <KanbanCard title="KanbanCard3" id="task-3" tasks={[]} />
+        {data.columnOrder.map((columnId:string)=>{
+          const column = data.columns[columnId];
+          const tasks = column.taskIds.map((taskId:string)=>{
+            data.tasks[taskId]
+          })
+          return(
+            <KanbanCard 
+            key={column.id}
+            id={column.id}
+            title={column.title}
+            tasks={tasks}
+            />
+          )
+        })}
       </HStack>
     </DragDropContext>
   );
