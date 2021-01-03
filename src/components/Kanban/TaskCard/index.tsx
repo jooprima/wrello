@@ -2,6 +2,8 @@ import React from "react";
 import { Box, Text, Flex } from "@chakra-ui/react";
 
 type TaskCardProps = {
+  id: string;
+  index: number;
   content: string;
 };
 

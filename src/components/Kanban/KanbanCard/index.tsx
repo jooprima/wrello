@@ -24,9 +24,17 @@ const KanbanCard: React.FC<KanbanCardProps> = ({ id, title, tasks = [] }) => {
         <Droppable droppableId={id}>
           {(provided, snapshot) => (
             <VStack flex={1} rounded={2}>
-              <TaskCard content="Ini task 1" />
-              <TaskCard content="Ini task 2" />
-              <TaskCard content="Ini task 3" />
+              {tasks.length > 0
+                ? tasks.map((task, index) => (
+                    <TaskCard
+                      key={task.id}
+                      content={task.content}
+                      id={task.id}
+                      index={index}
+                    />
+                  ))
+                : null}
+                {provided.placeholder}
             </VStack>
           )}
         </Droppable>
