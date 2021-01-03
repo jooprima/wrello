@@ -1,12 +1,13 @@
 import React from "react";
 import { Box, Text, Flex, VStack } from "@chakra-ui/react";
 
+import { Task } from "data/initial-data";
 import TaskCard from "components/Kanban/TaskCard";
 
 type KanbanCardProps = {
   id: string;
   title: string;
-  tasks: Array<string>;
+  tasks: Task[];
 };
 
 const KanbanCard: React.FC<KanbanCardProps> = ({ id, title, tasks = [] }) => {
