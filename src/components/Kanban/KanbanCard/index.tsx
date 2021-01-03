@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Text, Flex, VStack } from "@chakra-ui/react";
 
+import TaskCard from "components/Kanban/TaskCard";
+
 type KanbanCardProps = {
   id: string;
   title: string;
@@ -18,21 +20,9 @@ const KanbanCard: React.FC<KanbanCardProps> = ({ id, title, tasks = [] }) => {
         </Box>
 
         <VStack flex={1} rounded={2}>
-          <Box width="100%" bg="white">
-            JOo!{" "}
-          </Box>
-          <Box width="100%" bg="white">
-            JOo!{" "}
-          </Box>
-          <Box width="100%" bg="white">
-            JOo!{" "}
-          </Box>
-          <Box width="100%" bg="white">
-            JOo!{" "}
-          </Box>
-          <Box width="100%" bg="white">
-            JOo!{" "}
-          </Box>
+          <TaskCard content="Ini task 1" />
+          <TaskCard content="Ini task 2" />
+          <TaskCard content="Ini task 3" />
         </VStack>
       </Flex>
     </Box>
