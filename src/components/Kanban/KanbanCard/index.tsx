@@ -1,4 +1,5 @@
 import React from "react";
+import { Droppable } from "react-beautiful-dnd";
 import { Box, Text, Flex, VStack } from "@chakra-ui/react";
 
 import { Task } from "data/initial-data";
@@ -20,11 +21,15 @@ const KanbanCard: React.FC<KanbanCardProps> = ({ id, title, tasks = [] }) => {
           </Text>
         </Box>
 
-        <VStack flex={1} rounded={2}>
-          <TaskCard content="Ini task 1" />
-          <TaskCard content="Ini task 2" />
-          <TaskCard content="Ini task 3" />
-        </VStack>
+        <Droppable droppableId={id}>
+          {(provided, snapshot) => (
+            <VStack flex={1} rounded={2}>
+              <TaskCard content="Ini task 1" />
+              <TaskCard content="Ini task 2" />
+              <TaskCard content="Ini task 3" />
+            </VStack>
+          )}
+        </Droppable>
       </Flex>
     </Box>
   );
