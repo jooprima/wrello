@@ -1,5 +1,7 @@
 import React from "react";
-import { Box, HStack } from "@chakra-ui/react";
+import {  HStack } from "@chakra-ui/react";
+
+import KanbanCard from "components/Kanban/KanbanCard";
 
 const KanbanStack: React.FC = () => {
   return (
@@ -18,24 +20,9 @@ const KanbanStack: React.FC = () => {
       position="absolute"
       alignItems="flex-start"
     >
-      <Box width="270px" p={2} bg="blue.100" rounded={4}>
-        Hello Joo!
-      </Box>
-      <Box width="270px" p={2} bg="blue.100" rounded={4}>
-        Hello Joo!
-      </Box>
-      <Box width="270px" p={2} bg="blue.100" rounded={4}>
-        Hello Joo!
-      </Box>
-      <Box width="270px" p={2} bg="blue.100" rounded={4}>
-        Hello Joo!
-      </Box>
-      <Box width="270px" p={2} bg="blue.100" rounded={4}>
-        Hello Joo!
-      </Box>
-      <Box width="270px" p={2} bg="blue.100" rounded={4}>
-        Hello Joo!
-      </Box>
+      <KanbanCard title="KanbanCard1" id="task-1" tasks={[]} />
+      <KanbanCard title="KanbanCard2" id="task-2" tasks={[]} />
+      <KanbanCard title="KanbanCard3" id="task-3" tasks={[]} />
     </HStack>
   );
 };
