@@ -17,6 +17,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ content, id, index }) => {
           bg="white"
           p={1}
           rounded={2}
+          backgroundColor={snapshot.isDragging ? "blue.50" : "white"}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
