@@ -9,7 +9,41 @@ const KanbanStack: React.FC = () => {
   const [data, setData] = useState(initialData);
 
   const onDragEnd = (result: DropResult): void => {
-    //akan kita bahas di part selanhutnya
+    const { source, destination, draggableId } = result;
+
+    if (!destination) return;
+
+    if (
+      source.droppableId === destination.droppableId &&
+      source.index === destination.index
+    )
+      return;
+
+    const sourceColumn = data.columns[source.droppableId];
+    const destinationColumn = data.columns[destination.droppableId];
+
+    //dragging on the sama KanbanCard
+    if (sourceColumn.id === destinationColumn.id) {
+      const newTaskIds = Array.from(sourceColumn.taskIds);
+      newTaskIds.splice(source.index, 1);
+      newTaskIds.splice(destination.index, 0, draggableId);
+
+      const newColumn = {
+        ...sourceColumn,
+        taskIds: newTaskIds,
+      };
+
+      const newData = {
+        ...data,
+        columns: {
+          ...data.columns,
+          [newColumn.id]: newColumn,
+        },
+      };
+
+      setData(newData);
+      return;
+    }
   };
 
   return (
