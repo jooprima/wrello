@@ -26,6 +26,7 @@ const KanbanCard: React.FC<KanbanCardProps> = ({ id, title, tasks = [] }) => {
             <VStack
               flex={1}
               rounded={2}
+              minHeight="60px"
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
